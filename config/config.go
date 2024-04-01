@@ -15,6 +15,7 @@ type Config struct {
 	FetchInterval      time.Duration `yaml:"fetch_interval"`
 }
 
+// NewConfig: reads config from yaml file
 func NewConfig() (*Config, error) {
 	var cfg Config
 	f, err := os.ReadFile("config/config.yaml")

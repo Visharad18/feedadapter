@@ -68,6 +68,8 @@ var (
 )
 
 func TestMain(m *testing.M) {
+
+	// mock server to return mock responses for adapters respectively on the basis of endpoint
 	server = httptest.NewServer(http.HandlerFunc(
 		func(w http.ResponseWriter, r *http.Request) {
 			if strings.Contains(r.URL.Path, "alphavantage") {
@@ -94,6 +96,8 @@ func TestMain(m *testing.M) {
 	m.Run()
 }
 
+// Test for Alpha Vantage adapter verfying if there is no error parsing a dummy alpha vantage response/
+// and matching OHLCV values
 func TestAlphaVantageAdapter(t *testing.T) {
 	a := NewAlphaVantageAdapter(&cfg.AlphaVantageConfig)
 	data, err := a.Get(context.TODO(), "AAPL", time.Minute)

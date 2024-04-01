@@ -8,6 +8,8 @@ import (
 	"github.com/go-playground/assert/v2"
 )
 
+// Test for Polygon adapter verfying if there is no error parsing a dummy Polygon response/
+// and matching OHLCV values
 func TestPolygonAdapter(t *testing.T) {
 	a := NewPolygonAdapter(&cfg.PolygonConfig)
 	data, err := a.Get(context.TODO(), "AAPL", time.Minute)

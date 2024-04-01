@@ -62,6 +62,7 @@ func (a *PolygonAdapter) Get(_ context.Context, symbol string, duration time.Dur
 	return data.toHistoricalDataEntity()
 }
 
+// toHistoricalDataEntity: entity layer convertor for polygon response type
 func (resp *PolygonResponse) toHistoricalDataEntity() (map[int64]*entity.HistoricalData, error) {
 	res := make(map[int64]*entity.HistoricalData)
 

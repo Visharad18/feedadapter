@@ -12,9 +12,10 @@ var (
 	errKeyNotFound      = errors.New("key not found in cache")
 )
 
+// InMemoryCache: trivial map based in-memory storage storing historical data of symbols for unix timestamps
 type InMemoryCache struct {
 	cache map[string]map[int64]*entity.HistoricalData // map[symbol][unixEpoch]{OHLCV}
-	mu    sync.RWMutex
+	mu    sync.RWMutex                                // read-write mutex for handling concurrent reads-writes
 }
 
 func NewInMeInMemoryCache() *InMemoryCache {

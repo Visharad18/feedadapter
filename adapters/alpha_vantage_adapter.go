@@ -63,6 +63,7 @@ func (a *AlphaVantageAdapter) Get(_ context.Context, symbol string, _ time.Durat
 	return data.toHistoricalDataEntity()
 }
 
+// toHistoricalDataEntity: entity layer convertor for alpha vantage  response type
 func (resp *alphaVantageResponse) toHistoricalDataEntity() (map[int64]*entity.HistoricalData, error) {
 	res := make(map[int64]*entity.HistoricalData)
 
